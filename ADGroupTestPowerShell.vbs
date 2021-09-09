@@ -74,3 +74,15 @@ username	DCYF\svcdcyffmlnkintqa2
 
 CAF.FEDS.CAF.030.WTPY.RESPONSE.txt
 CAF.FEDS.CAF.030.WTPY.RESPONSE.txt
+                                
+dcyf.wa.lcl/Operations/Groups/Resource/Database/G-S-DCYF-Acorn Developers
+
+
+get-adgroup -Filter * -SearchBase "OU=Operations,DC=dcyf,DC=wa,DC=lcl"  | %{Get-ADGroupMember $_.name} | ft name
+
+Get-ADGroup -filter * -SearchBase "OU=Operations,DC=dcyf,DC=wa,DC=lcl" -Properties "samaccountname","SID","distinguishedName" | Select-Object -Property "samaccountname","SID","distinguishedName"
+
+
+
+
+Get-ADGroupMember -identity  S-1-5-21-1645379729-1712154184-1921145505-6865 | Select-Object -Property *
